@@ -112,6 +112,18 @@ namespace TDDKata
             Assert.Equal(expected, actual);
         }
 
+        [Fact]
+        public void DigitsWithOptionalDelimeterShouldUseDelimeterForSum()
+        {
+            // Arrange
+            string digit = "//;\n1;2";
+            int expected = 3;
+            // Act
+            int actual = Calc.Add(digit);
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
 
     }
 }
