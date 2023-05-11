@@ -88,6 +88,30 @@ namespace TDDKata
             Assert.Equal(expected, actual);
         }
 
+        [Fact]
+        public void NewLineWithinDigitsIsPermitedAndShuldReturnSum()
+        {
+            // Arrange
+            string digit = "1\n2,3";
+            int expected = 6;
+            // Act
+            int actual = Calc.Add(digit);
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void NewLineAtEndOfDigitsShouldReturnMinusOne()
+        {
+            // Arrange
+            string digit = "1,\n";
+            int expected = -1;
+            // Act
+            int actual = Calc.Add(digit);
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
 
     }
 }

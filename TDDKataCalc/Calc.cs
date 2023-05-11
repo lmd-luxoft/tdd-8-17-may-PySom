@@ -1,4 +1,6 @@
-﻿namespace TDDKataCalc;
+﻿using System.Text.RegularExpressions;
+
+namespace TDDKataCalc;
 
 public class Calc
 {
@@ -8,8 +10,7 @@ public class Calc
         if (digits == "") return 0;
         try
         {
-
-            return digits.Split(',').Select(x => int.Parse(x)).Sum();
+            return Regex.Split(digits, ",|\n").Select(x => int.Parse(x)).Sum();
         }catch (Exception) { return -1; }
     }
 }
